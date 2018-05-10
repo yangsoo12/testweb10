@@ -1,0 +1,158 @@
+<html>
+
+<head>
+	<script language="JavaScript">
+		var appcondition = 0;
+
+	function setH(){
+		appcondition = 2;
+		console.log("appcondition");
+		console.log(appcondition);
+	}
+		
+		
+	function setO(){
+		appcondition = 3;
+		console.log("appcondition");
+		console.log(appcondition);
+	}
+	</script>
+    <title>yangang &amp; siwon</title>
+    <meta charset="utf-8"/>
+    <script src="javascripts/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascripts/Chart.min.js" type="text/javascript" charset="utf-8"></script>
+    <link href="stylesheets/style.css" rel="stylesheet" />
+
+	
+<style type="text/css">
+   .centertable {
+        margin: 0px auto;
+    }
+    .centertable div{
+        margin-top: -20px;
+    }
+    .centertable p{
+        text-align: center;
+        margin-top: -15px;
+    }
+    .ttitle {
+        text-align: center;
+    }
+    #g5, #g6, #g7 {
+        margin-top: -10px;
+    }
+</style>
+    
+</head>
+
+<body>
+
+	
+<!------------------------------------------------------------------------>
+
+<table class ="centertable" >
+    <tr>
+        <td> 
+            <div class="ttitle">PM2.5(㎍/㎥)</div>
+            <div id="g5"></div>
+            <p id="p2g5">--</p>
+        </td>
+
+        <td> 
+            <div class="ttitle">PM10(㎍/㎥)</div>
+            <div id="g6"></div>
+            <p id="p10g6">--</p>
+        </td>
+    </tr>
+</table>
+  
+    <script src="raphael-2.1.4.min.js"></script>
+    <script src="justgage.js"></script>
+    <script>
+    var g5;
+    document.addEventListener("DOMContentLoaded", function(event) {
+        g5 = new JustGage({
+            id: "g5",
+            value: 72,
+            min: 0,
+            max: 100,
+            donut: true,
+            gaugeWidthScale: 0.3,
+            counter: true,
+            hideInnerShadow: true
+        });
+   //     document.getElementById('g1_refresh').addEventListener('click', function() {
+   //         g1.refresh(getRandomInt(0, 100));
+   //     });
+   setInterval(myMethod, 1000);
+   function myMethod()
+	{
+		var aa = document.getElementById("pm2").innerHTML;
+		g5.refresh(parseInt(aa));
+	}
+    });
+    </script>
+	
+
+
+
+    <script src="raphael-2.1.4.min.js"></script>
+    <script src="justgage.js"></script>
+    <script>
+	var g6;
+    document.addEventListener("DOMContentLoaded", function(event) {
+        g6 = new JustGage({
+            id: "g6",
+            value: 72,
+            min: 0,
+            max: 100,
+            donut: true,
+            gaugeWidthScale: 0.3,
+            counter: true,
+            hideInnerShadow: true
+        });
+   setInterval(myMethod, 1000);
+   function myMethod()
+	{
+		var aa = document.getElementById("pm10").innerHTML;
+		g6.refresh(parseInt(aa));
+	}
+    });
+       </script>
+
+    <script src="raphael-2.1.4.min.js"></script>
+    <!--<script src="../justgage-1.0.1.js"></script>-->
+    <script src="justgage.js"></script>
+    <script>
+	var g7;
+    document.addEventListener("DOMContentLoaded", function(event) {
+        g7 = new JustGage({
+            id: "g7",
+            value: 72,
+            min: 0,
+            max: 100,
+            donut: true,
+            gaugeWidthScale: 0.3,
+            counter: true,
+            hideInnerShadow: true
+        });
+ 
+   setInterval(myMethod, 1000);
+   function myMethod()
+	{
+		var aa = document.getElementById("temp").innerHTML;
+		g7.refresh(parseInt(aa));
+	}
+    });
+    
+    </script>
+<!------------------------------------------------------------------------>
+
+    <br><br><br>
+    <p id="pm2"></p>
+    <p id="pm10"></p>
+	<p id="temp"></p>
+	<p id="motion">0</p>
+</body>
+
+</html>
